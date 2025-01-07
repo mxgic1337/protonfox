@@ -1,0 +1,40 @@
+@native: rgb(142, 214, 41);
+@platinum: rgb(180, 199, 220);
+@gold: rgb(207, 181, 59);
+@silver: rgb(166, 166, 166);
+@bronze: rgb(205, 127, 50);
+@borked: rgb(255, 80, 80);
+
+.badge {
+	padding: 1px;
+	cursor: pointer;
+	display: inline-block;
+	border-radius: 2px;
+	margin-left: 3px;
+
+	span {
+		padding: 0 15px;
+		font-size: 15px;
+		line-height: 30px;
+	}
+}
+
+.rating(@color) {
+	color: @color;
+
+	&.badge {
+		background-color: fade(@color, 20%);
+
+		&:hover {
+			color: #fff;
+			background-color: fade(@color, 40%);
+		}
+	}
+}
+
+.native { .rating(@native) }
+.platinum { .rating(@platinum) }
+.gold { .rating(@gold) }
+.silver { .rating(@silver) }
+.bronze { .rating(@bronze) }
+.borked { .rating(@borked) }

@@ -1,0 +1,20 @@
+import {ProtonDBRating, ProtonDBSummary} from "./utils/utils";
+import {addStoreRatingBadge, addSystemRequirementsRating} from "./utils/store";
+import './styles/steam.less'
+
+function getGameID() {
+	return window.location.href.substring("https://store.steampowered.com/app/".length).split('/')[0]
+}
+
+const gameId = getGameID();
+fetch(`https://www.protondb.com/api/v1/reports/summaries/${gameId}.json`).then(async (res) => {
+	const json = await res.json() as ProtonDBSummary;
+	addStoreRatingBadge(gameId, json.tier)
+	addSystemRequirementsRating(gameId, json.tier)
+
+	let native = false;
+	document.getElementsByName('sysreq_tab').forEach(tab => {
+		if (tab.getAttribute('data-os') === 'linux') native = true
+	})
+	addStoreRatingBadge(gameId, ProtonDBRating.NATIVE)
+})

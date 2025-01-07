@@ -1,0 +1,20 @@
+{
+	"manifest_version": 2,
+	"name": "Protonfox",
+	"version": "0.1.0",
+	"description": "Displays information about game compatibility with Proton on Steam.",
+	"content_scripts": [
+		{
+			"matches": [
+				"*://store.steampowered.com/app/*"
+			],
+			"js": [
+				"steam.js"
+			]
+		}
+	],
+	"permissions": [
+		"*://*.protondb.com/api/v1/*",
+		"tabs"
+	]
+}

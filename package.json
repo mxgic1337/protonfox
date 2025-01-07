@@ -1,0 +1,23 @@
+{
+	"name": "protonfox",
+	"version": "0.1.0",
+	"description": "Displays information about game compatibility with Proton on Steam.",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"build": "webpack --mode production && cp src/manifest.json dist/"
+	},
+	"keywords": [],
+	"author": "mxgic1337_",
+	"license": "MIT",
+	"devDependencies": {
+		"css-loader": "^7.1.2",
+		"less-loader": "^12.2.0",
+		"style-loader": "^4.0.0",
+		"ts-loader": "^9.5.1",
+		"typescript": "^5.7.2",
+		"webpack": "^5.97.1",
+		"webpack-cli": "^6.0.1",
+		"webpack-dev-server": "^5.2.0"
+	}
+}
