@@ -8,9 +8,14 @@ function getGameID() {
 
 const gameId = getGameID();
 fetch(`https://www.protondb.com/api/v1/reports/summaries/${gameId}.json`).then(async (res) => {
-	const json = await res.json() as ProtonDBSummary;
-	addStoreRatingBadge(gameId, json.tier)
-	addSystemRequirementsRating(gameId, json.tier)
+	if (res.ok) {
+		const json = await res.json() as ProtonDBSummary;
+		addStoreRatingBadge(gameId, json.tier)
+		addSystemRequirementsRating(gameId, json.tier)
+	}else{
+		addStoreRatingBadge(gameId, ProtonDBRating.PENDING)
+		addSystemRequirementsRating(gameId, ProtonDBRating.PENDING)
+	}
 
 	let native = false;
 	for (const tab of document.getElementsByClassName('sysreq_tab')) {

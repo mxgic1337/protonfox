@@ -5,6 +5,7 @@ export enum ProtonDBRating {
 	SILVER = 'silver',
 	BRONZE = 'bronze',
 	BORKED = 'borked',
+	PENDING = 'pending',
 }
 
 export interface ProtonDBSummary {
