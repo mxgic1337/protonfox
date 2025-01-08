@@ -1,3 +1,5 @@
+import {ratings} from "../steam";
+
 export enum ProtonDBRating {
 	NATIVE = 'native',
 	PLATINUM = 'platinum',
@@ -32,4 +34,23 @@ export function upperCase(text: string) {
 export function getGameID(url?: string) {
 	if (!url) url = window.location.href;
 	return url.substring("https://store.steampowered.com/app/".length).split('/')[0]
+}
+
+export function getProtonDBRating(gameId: string) {
+	return new Promise<ProtonDBRating>((resolve, reject) => {
+		if (ratings[gameId]) {
+			resolve(ratings[gameId]);
+		}else{
+			fetch(`https://www.protondb.com/api/v1/reports/summaries/${gameId}.json`).then(async (res) => {
+				if (res.ok) {
+					const json = await res.json() as ProtonDBSummary;
+					ratings[gameId] = json.tier;
+					resolve(json.tier);
+				}else{
+					ratings[gameId] = ProtonDBRating.UNKNOWN;
+					resolve(ProtonDBRating.UNKNOWN)
+				}
+			}).catch(console.error);
+		}
+	})
 }

@@ -1,4 +1,4 @@
-import {createSpan, getGameID, ProtonDBSummary, upperCase} from "./utils/utils";
+import {createSpan, getGameID, getProtonDBRating, ProtonDBSummary, upperCase} from "./utils/utils";
 
 export function checkSearchPage() {
 	const searchResults = document.getElementById('search_resultsRows');
@@ -17,14 +17,9 @@ function checkSearchResults() {
 		if (game.getElementsByClassName('tag').length > 0) { continue; }
 		const name = game.getElementsByClassName('title')[0]
 		const gameId = getGameID(game.getAttribute('href') || "10");
-		fetch(`https://www.protondb.com/api/v1/reports/summaries/${gameId}.json`).then(async (res) => {
+		getProtonDBRating(gameId).then(async (rating) => {
 			if (game.getElementsByClassName('tag').length > 0) { return; }
-			if (res.ok) {
-				const json = await res.json() as ProtonDBSummary;
-				name.appendChild(createSpan(upperCase(json.tier), ['tag', json.tier, 'search']))
-			} else {
-				name.appendChild(createSpan('Unknown', ['tag', 'unknown', 'search']))
-			}
+			name.appendChild(createSpan(upperCase(rating), ['tag', rating, 'search']))
 		})
 	}
 }
