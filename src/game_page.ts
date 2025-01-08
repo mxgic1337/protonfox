@@ -10,8 +10,8 @@ export function checkGamePage() {
 			addStoreRatingBadge(gameId, json.tier)
 			addSystemRequirementsRating(gameId, json.tier)
 		}else{
-			addStoreRatingBadge(gameId, ProtonDBRating.PENDING)
-			addSystemRequirementsRating(gameId, ProtonDBRating.PENDING)
+			addStoreRatingBadge(gameId, ProtonDBRating.UNKNOWN)
+			addSystemRequirementsRating(gameId, ProtonDBRating.UNKNOWN)
 		}
 
 		let native = false;

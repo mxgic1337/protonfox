@@ -12,7 +12,7 @@ export function checkSearch() {
 					const json = await res.json() as ProtonDBSummary;
 					name.appendChild(createSpan(upperCase(json.tier), ['tag', json.tier]))
 				} else {
-					name.appendChild(createSpan('Pending', ['tag', 'pending']))
+					name.appendChild(createSpan('Unknown', ['tag', 'unknown']))
 				}
 			})
 		}

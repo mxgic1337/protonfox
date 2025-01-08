@@ -8,4 +8,5 @@ if (window.location.href.startsWith('https://store.steampowered.com/app')) {
 if (window.location.href.startsWith('https://store.steampowered.com/search')) {
 	checkSearchPage()
 }
+
 checkSearch()
