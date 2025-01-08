@@ -24,11 +24,21 @@
 	color: @color;
 
 	&.badge {
-		background-color: fade(@color, 20%);
+		background-color: fade(@color, 20%) !important;
 
 		&:hover {
 			color: #fff;
-			background-color: fade(@color, 40%);
+			background-color: fade(@color, 40%) !important;
+		}
+	}
+
+	&.tag {
+		background-color: fade(@color, 20%) !important;
+
+		&.search {
+			padding: 0 6px;
+			border-radius: 4px;
+			margin-left: 6px;
 		}
 	}
 }
