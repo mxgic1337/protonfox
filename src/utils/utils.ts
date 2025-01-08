@@ -1,3 +1,5 @@
+import {ratings} from "../steam";
+
 export enum ProtonDBRating {
 	NATIVE = 'native',
 	PLATINUM = 'platinum',
@@ -5,19 +7,50 @@ export enum ProtonDBRating {
 	SILVER = 'silver',
 	BRONZE = 'bronze',
 	BORKED = 'borked',
-	PENDING = 'pending',
+	UNKNOWN = 'unknown',
 }
 
 export interface ProtonDBSummary {
 	tier: ProtonDBRating
 }
 
-export function createSpan(text: string) {
+export function createSpan(text: string, classes?: string[]) {
 	const element = document.createElement("span");
+
+	if (classes) {
+		for (const prop of classes) {
+			element.classList.add(prop);
+		}
+	}
+
 	element.appendChild(document.createTextNode(text))
 	return element
 }
 
 export function upperCase(text: string) {
 	return text.charAt(0).toUpperCase() + text.substring(1)
+}
+
+export function getGameID(url?: string) {
+	if (!url) url = window.location.href;
+	return url.substring("https://store.steampowered.com/app/".length).split('/')[0]
+}
+
+export function getProtonDBRating(gameId: string) {
+	return new Promise<ProtonDBRating>((resolve, reject) => {
+		if (ratings[gameId]) {
+			resolve(ratings[gameId]);
+		}else{
+			fetch(`https://www.protondb.com/api/v1/reports/summaries/${gameId}.json`).then(async (res) => {
+				if (res.ok) {
+					const json = await res.json() as ProtonDBSummary;
+					ratings[gameId] = json.tier;
+					resolve(json.tier);
+				}else{
+					ratings[gameId] = ProtonDBRating.UNKNOWN;
+					resolve(ProtonDBRating.UNKNOWN)
+				}
+			}).catch(console.error);
+		}
+	})
 }

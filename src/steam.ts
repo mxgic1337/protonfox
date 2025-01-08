@@ -1,25 +1,15 @@
-import {ProtonDBRating, ProtonDBSummary} from "./utils/utils";
-import {addStoreRatingBadge, addSystemRequirementsRating} from "./utils/store";
-import './styles/steam.less'
+import {checkGamePage} from "./game_page";
+import {checkSearch} from "./store_search";
+import {checkSearchPage} from "./search_page";
+import {ProtonDBRating} from "./utils/utils";
 
-function getGameID() {
-	return window.location.href.substring("https://store.steampowered.com/app/".length).split('/')[0]
+export const ratings: {[key: string]: ProtonDBRating} = {}
+
+if (window.location.href.startsWith('https://store.steampowered.com/app')) {
+	checkGamePage()
+}
+if (window.location.href.startsWith('https://store.steampowered.com/search')) {
+	checkSearchPage()
 }
 
-const gameId = getGameID();
-fetch(`https://www.protondb.com/api/v1/reports/summaries/${gameId}.json`).then(async (res) => {
-	if (res.ok) {
-		const json = await res.json() as ProtonDBSummary;
-		addStoreRatingBadge(gameId, json.tier)
-		addSystemRequirementsRating(gameId, json.tier)
-	}else{
-		addStoreRatingBadge(gameId, ProtonDBRating.PENDING)
-		addSystemRequirementsRating(gameId, ProtonDBRating.PENDING)
-	}
-
-	let native = false;
-	for (const tab of document.getElementsByClassName('sysreq_tab')) {
-		if (tab.getAttribute('data-os') === 'linux') native = true
-	}
-	if (native) addStoreRatingBadge(gameId, ProtonDBRating.NATIVE)
-})
+checkSearch()

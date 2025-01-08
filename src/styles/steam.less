@@ -1,5 +1,6 @@
 @native: rgb(142, 214, 41);
-@pending: rgb(187, 187, 187);
+@pending: rgb(103, 131, 245);
+@unknown: rgb(136, 124, 124);
 @platinum: rgb(180, 199, 220);
 @gold: rgb(207, 181, 59);
 @silver: rgb(166, 166, 166);
@@ -24,16 +25,27 @@
 	color: @color;
 
 	&.badge {
-		background-color: fade(@color, 20%);
+		background-color: fade(@color, 20%) !important;
 
 		&:hover {
 			color: #fff;
-			background-color: fade(@color, 40%);
+			background-color: fade(@color, 40%) !important;
+		}
+	}
+
+	&.tag {
+		background-color: fade(@color, 20%) !important;
+
+		&.search {
+			padding: 0 6px;
+			border-radius: 4px;
+			margin-left: 6px;
 		}
 	}
 }
 
 .native { .rating(@native) }
+.unknown { .rating(@unknown) }
 .pending { .rating(@pending) }
 .platinum { .rating(@platinum) }
 .gold { .rating(@gold) }

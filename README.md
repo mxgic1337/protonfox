@@ -5,16 +5,16 @@ Protonfox is an extension for [Firefox](https://firefox.com) that displays [Prot
 
 ![preview.png](.github/assets/preview.png)
 
-# Building:
+## 🚀 Building:
 Requirements:
-- Node.js (version 22.11.0 recommended)
-- PNPM package manager
-
-> [!IMPORTANT]
-> The build script currently works only on **Linux**.
+- [Node.js](https://nodejs.org) (recommended version: 22.x)
+- [pnpm](https://pnpm.io/installation) package manager (recommended version: 9.x)
 
 To build the extension:
 - Run `pnpm install` to install dependencies.
 - Run `pnpm run build` to build the extension.
+
+## 📰 Credits:
+- [MostwantedRBX/proton-chrome-extension](https://github.com/MostwantedRBX/proton-chrome-extension) - Original extension
 
 This extension is not affiliated with ProtonDB and/or Valve Corporation.

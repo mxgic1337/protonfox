@@ -1,8 +1,7 @@
 {
 	"name": "protonfox",
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"description": "Displays information about game compatibility with Proton on Steam.",
-	"main": "index.js",
 	"type": "module",
 	"scripts": {
 		"build": "webpack --mode production && node scripts/manifest.cjs"
