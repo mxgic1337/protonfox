@@ -13,8 +13,8 @@ fetch(`https://www.protondb.com/api/v1/reports/summaries/${gameId}.json`).then(a
 	addSystemRequirementsRating(gameId, json.tier)
 
 	let native = false;
-	document.getElementsByName('sysreq_tab').forEach(tab => {
+	for (const tab of document.getElementsByClassName('sysreq_tab')) {
 		if (tab.getAttribute('data-os') === 'linux') native = true
-	})
-	addStoreRatingBadge(gameId, ProtonDBRating.NATIVE)
+	}
+	if (native) addStoreRatingBadge(gameId, ProtonDBRating.NATIVE)
 })
