@@ -1,5 +1,6 @@
 # Protonfox
 Protonfox is an extension for [Firefox](https://firefox.com) that displays [ProtonDB](https://protondb.com) ratings on Steam.
+
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/mxgic1337/protonfox/build-check.yml?style=flat-square) ![GitHub package.json version](https://img.shields.io/github/package-json/v/mxgic1337/protonfox?style=flat-square)
 
 ![preview.png](.github/assets/preview.png)
