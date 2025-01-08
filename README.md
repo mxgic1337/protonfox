@@ -1,7 +1,12 @@
-# Protonfox
-Protonfox is an extension for [Firefox](https://firefox.com) that displays [ProtonDB](https://protondb.com) ratings on Steam.
+<p style="text-align:center;"><img alt="Icon" src=".github/assets/protonfox.png" /></p>
+<h1 style="text-align:center;">Protonfox</h1>
+<p style="text-align:center;">Protonfox is an extension for <a href="https://firefox.com">Firefox</a> that displays <a href="https://protondb.com">ProtonDB</a> ratings on Steam.</p>
 
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/mxgic1337/protonfox/build-check.yml?style=flat-square) ![GitHub package.json version](https://img.shields.io/github/package-json/v/mxgic1337/protonfox?style=flat-square)
+<p style="text-align:center;"><img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/mxgic1337/protonfox/build-check.yml?style=flat-square"> <img alt="GitHub package.json version" src="https://img.shields.io/github/package-json/v/mxgic1337/protonfox?style=flat-square&logo=nodedotjs&logoColor=%23fff"> <img alt="Mozilla Add-on Version" src="https://img.shields.io/amo/v/protonfox-for-steam?style=flat-square&logo=firefox&logoColor=%23fff"></p>
+
+---
+
+### [🧩 Install for Firefox](https://addons.mozilla.org/en-US/firefox/addon/protonfox-for-steam/)
 
 ![preview.png](.github/assets/preview.png)
 
