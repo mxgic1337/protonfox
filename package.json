@@ -1,6 +1,6 @@
 {
 	"name": "protonfox",
-	"version": "0.3.1",
+	"version": "0.4.0",
 	"description": "Extension that displays information about game compatibility with Proton on Steam.",
 	"type": "module",
 	"scripts": {
