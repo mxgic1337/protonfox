@@ -1,7 +1,10 @@
-import {createSpan, getGameID, getProtonDBRating, ProtonDBRating, ProtonDBSummary, upperCase} from "./utils/utils";
+import {createElement, getGameID, getProtonDBRating, ProtonDBRating, ProtonDBSummary, upperCase} from "./utils/utils";
 import {addStoreRatingBadge, addSystemRequirementsRating} from "./utils/store";
 import './styles/steam.less'
 
+/**
+ * Adds rating tags to the game page
+ */
 export function checkGamePage() {
 	const gameId = getGameID();
 

@@ -14,8 +14,8 @@ export interface ProtonDBSummary {
 	tier: ProtonDBRating
 }
 
-export function createSpan(text: string, classes?: string[]) {
-	const element = document.createElement("span");
+export function createElement(text: string, classes?: string[], elementName?: string) {
+	const element = document.createElement(elementName || "span");
 
 	if (classes) {
 		for (const prop of classes) {

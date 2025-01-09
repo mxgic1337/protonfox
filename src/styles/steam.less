@@ -7,7 +7,7 @@
 @bronze: rgb(205, 127, 50);
 @borked: rgb(255, 80, 80);
 
-.badge {
+.protonfox-badge {
 	padding: 1px;
 	cursor: pointer;
 	display: inline-block;
@@ -21,10 +21,14 @@
 	}
 }
 
-.rating(@color) {
+.protonfox-rating-mixin(@color) {
 	color: @color;
 
-	&.badge {
+	&.protonfox-rating-bright {
+		color: lighten(@color, 15%);
+	}
+
+	&.protonfox-badge {
 		background-color: fade(@color, 20%) !important;
 
 		&:hover {
@@ -33,10 +37,10 @@
 		}
 	}
 
-	&.tag {
+	&.protonfox-tag {
 		background-color: fade(@color, 20%) !important;
 
-		&.search {
+		&.protonfox-search {
 			position: relative;
 			top: -5px;
 			padding: 0 6px;
@@ -45,11 +49,11 @@
 	}
 }
 
-.native { .rating(@native) }
-.unknown { .rating(@unknown) }
-.pending { .rating(@pending) }
-.platinum { .rating(@platinum) }
-.gold { .rating(@gold) }
-.silver { .rating(@silver) }
-.bronze { .rating(@bronze) }
-.borked { .rating(@borked) }
+.protonfox-rating-native { .protonfox-rating-mixin(@native) }
+.protonfox-rating-unknown { .protonfox-rating-mixin(@unknown) }
+.protonfox-rating-pending { .protonfox-rating-mixin(@pending) }
+.protonfox-rating-platinum { .protonfox-rating-mixin(@platinum) }
+.protonfox-rating-gold { .protonfox-rating-mixin(@gold) }
+.protonfox-rating-silver { .protonfox-rating-mixin(@silver) }
+.protonfox-rating-bronze { .protonfox-rating-mixin(@bronze) }
+.protonfox-rating-borked { .protonfox-rating-mixin(@borked) }
