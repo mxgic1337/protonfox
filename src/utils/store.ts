@@ -1,4 +1,4 @@
-import {createElement, ProtonDBRating, upperCase} from "./utils";
+import { AreWeAntiCheatYetStatus, createElement, log, ProtonDBRating, upperCase } from "./utils";
 
 export function addStoreRatingBadge(gameId: string, rating: ProtonDBRating) {
 	const appInfo = document.getElementsByClassName('apphub_OtherSiteInfo')[0]
@@ -10,6 +10,22 @@ export function addStoreRatingBadge(gameId: string, rating: ProtonDBRating) {
 	element.classList.add('btn_medium')
 
 	element.href = `https://protondb.com/app/${gameId}`
+	element.target = '_blank'
+	appInfo.insertBefore(element, appInfo.firstChild);
+}
+
+export function addAntiCheatStatusBadge(gameId: string, status: AreWeAntiCheatYetStatus) {
+	const appInfo = document.getElementsByClassName('apphub_OtherSiteInfo')[0]
+	const element = document.createElement("a");
+	const iconElement = createElement('', [`protonfox-icon`], 'span', `mask-image: url(${browser.runtime.getURL(`assets/ac-${status.toLowerCase()}.svg`)});`);
+	element.appendChild(iconElement);
+
+	element.classList.add('protonfox-badge')
+	element.classList.add(`protonfox-ac-rating-${status.toLowerCase()}`)
+	element.classList.add('btn_medium')
+
+	element.title = `AntiCheat status: ${status} (Are We Anti-Cheat Yet?)`
+	element.href = `https://areweanticheatyet.com/game/${gameId}`
 	element.target = '_blank'
 	appInfo.insertBefore(element, appInfo.firstChild);
 }

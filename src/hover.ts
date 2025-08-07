@@ -1,4 +1,4 @@
-import {createElement, getProtonDBRating, upperCase} from "./utils/utils";
+import { createElement, getAreWeAntiCheatYetRating, getProtonDBRating, upperCase } from "./utils/utils";
 
 /**
  * Adds rating text to the hover box
@@ -16,13 +16,20 @@ export function checkHover() {
 				const gameId = game.id.substring('hover_app_'.length);
 				getProtonDBRating(gameId).then(async (rating) => {
 					const protonDBRatingTitle = createElement('ProtonDB rating: ', ['title'], 'div');
-          protonDBRatingTitle.appendChild(createElement(upperCase(rating), [`protonfox-rating-${rating}`, 'protonfox-rating-bright']))
-					reviews.prepend(protonDBRatingTitle)
+					protonDBRatingTitle.appendChild(createElement(upperCase(rating), [`protonfox-rating-${rating}`, 'protonfox-rating-bright']))
+					const status = getAreWeAntiCheatYetRating(gameId);
+					if (status) {
+						const statusTitle = createElement('AntiCheat status: ', ['title'], 'div');
+						statusTitle.appendChild(createElement(status, [`protonfox-ac-rating-${status.toLowerCase()}`, 'protonfox-rating-bright']))
+						reviews.prepend(protonDBRatingTitle, statusTitle)
+					} else {
+						reviews.prepend(protonDBRatingTitle)
+					}
 				})
 			}
 		}
 	});
 	if (hoverDiv) {
-		mutationObserver.observe(hoverDiv, {childList: true});
+		mutationObserver.observe(hoverDiv, { childList: true });
 	}
 }

@@ -17,6 +17,8 @@
 		"48": "assets/icon-48.png"
 	},
 	"permissions": [
-		"*://*.protondb.com/api/v1/*"
-	]
+		"*://*.protondb.com/api/v1/*",
+		"*://api.github.com/repos/AreWeAntiCheatYet/AreWeAntiCheatYet/contents/games.json"
+	],
+	"web_accessible_resources": ["assets/*.svg"]
 }

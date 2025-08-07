@@ -1,13 +1,13 @@
-import {createElement, getGameID, getProtonDBRating, ProtonDBSummary, upperCase} from "./utils/utils";
+import { createElement, getAreWeAntiCheatYetRating, getGameID, getProtonDBRating, ProtonDBSummary, upperCase } from "./utils/utils";
 
 export function checkSearchPage() {
 	const searchResults = document.getElementById('search_resultsRows');
-	const mutationObserver = new window.MutationObserver(async ()=>{
+	const mutationObserver = new window.MutationObserver(async () => {
 		checkSearchResults()
 	});
 	if (searchResults) {
 		checkSearchResults()
-		mutationObserver.observe(searchResults, {childList: true});
+		mutationObserver.observe(searchResults, { childList: true });
 	}
 }
 
@@ -22,6 +22,12 @@ function checkSearchResults() {
 		const gameId = getGameID(game.getAttribute('href') || "10");
 		getProtonDBRating(gameId).then(async (rating) => {
 			if (game.getElementsByClassName('protonfox-tag').length > 0) { return; }
+			const status = getAreWeAntiCheatYetRating(gameId);
+			if (status) {
+				const statusElement = createElement('', ['protonfox-icon', `protonfox-ac-rating-${status.toLowerCase()}`, 'protonfox-search'], 'span', `mask-image: url(${browser.runtime.getURL(`assets/ac-${status.toLowerCase()}.svg`)}); display: inline-block; position: relative; top: -2px;`);
+				statusElement.title = `AntiCheat status: ${status} (Are We Anti-Cheat Yet?)`;
+				name.prepend(statusElement);
+			}
 			name.prepend(createElement(upperCase(rating), ['protonfox-tag', `protonfox-rating-${rating}`, 'protonfox-search']))
 		})
 	}

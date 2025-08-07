@@ -1,6 +1,6 @@
 {
 	"name": "protonfox",
-	"version": "0.4.0",
+	"version": "0.5.0",
 	"description": "Extension that displays information about game compatibility with Proton on Steam.",
 	"type": "module",
 	"scripts": {
@@ -18,5 +18,8 @@
 		"webpack": "^5.97.1",
 		"webpack-cli": "^6.0.1",
 		"webpack-dev-server": "^5.2.0"
+	},
+	"dependencies": {
+		"@types/firefox-webext-browser": "^120.0.4"
 	}
 }
