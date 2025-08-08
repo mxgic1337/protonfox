@@ -4,11 +4,11 @@ import { checkSearchPage } from "./search_page";
 import { AreWeAntiCheatYetStatus, log, ProtonDBRating } from "./utils/utils";
 import { checkHover } from "./hover";
 
-import './assets/ac-supported.svg';
-import './assets/ac-running.svg';
-import './assets/ac-planned.svg';
-import './assets/ac-broken.svg';
-import './assets/ac-denied.svg';
+import './assets/icons/ac-supported.svg';
+import './assets/icons/ac-running.svg';
+import './assets/icons/ac-planned.svg';
+import './assets/icons/ac-broken.svg';
+import './assets/icons/ac-denied.svg';
 
 export const ratings: { [key: string]: ProtonDBRating } = {}
 export type AntiCheatCompatibility = { status: AreWeAntiCheatYetStatus, slug: string, storeIds: { steam?: string } };
