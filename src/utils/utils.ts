@@ -66,7 +66,11 @@ export function getProtonDBRating(gameId: string) {
 					ratings[gameId] = ProtonDBRating.UNKNOWN;
 					resolve(ProtonDBRating.UNKNOWN)
 				}
-			}).catch(console.error);
+			}).catch((err) => {
+				log(`Failed to fetch ProtonDB rating for ${gameId}: ${err}`)
+				ratings[gameId] = ProtonDBRating.UNKNOWN;
+				resolve(ProtonDBRating.UNKNOWN)
+			});
 		}
 	})
 }

@@ -1,13 +1,13 @@
 import { createElement, getAreWeAntiCheatYetRating, getGameID, getProtonDBRating, ProtonDBSummary, upperCase } from "./utils/utils";
 
 export function checkSearchPage() {
-	const searchResults = document.getElementById('search_resultsRows');
+	const searchResults = document.getElementById('search_results');
 	const mutationObserver = new window.MutationObserver(async () => {
 		checkSearchResults()
 	});
 	if (searchResults) {
 		checkSearchResults()
-		mutationObserver.observe(searchResults, { childList: true });
+		mutationObserver.observe(searchResults, { subtree: true, childList: true });
 	}
 }
 

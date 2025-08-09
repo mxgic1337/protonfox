@@ -10,7 +10,7 @@ export function checkHover() {
 		const games = hoverDiv.children;
 		for (const game of games) {
 			if (!game.id.startsWith('hover_app_')) continue;
-			const reviews = game.getElementsByClassName('hover_review_summary')[0]
+			const reviews = game.getElementsByClassName('hover_review_summary')[0];
 			const hasRating = reviews.getElementsByClassName('protonfox-rating-bright').length !== 0;
 			if (!hasRating) {
 				const gameId = game.id.substring('hover_app_'.length);
