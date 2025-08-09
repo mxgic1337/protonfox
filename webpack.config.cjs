@@ -12,11 +12,18 @@ module.exports = {
 			{
 				test: /\.less?$/,
 				use: ['style-loader', 'css-loader', 'less-loader'],
-			}
+			},
+			{
+				test: /\.svg$/,
+				type: 'asset/resource',
+				generator: {
+					filename: 'assets/[name][ext]',
+				},
+			},
 		],
 	},
 	resolve: {
-		extensions: ['.tsx', '.ts', '.js'],
+		extensions: ['.tsx', '.ts', '.js', '.svg'],
 	},
 	output: {
 		filename: 'steam.js',
