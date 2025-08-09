@@ -24,6 +24,6 @@ To build the extension:
 
 ## 📰 Credits:
 
-- [MostwantedRBX/proton-chrome-extension](https://github.com/MostwantedRBX/proton-chrome-extension) - Original extension
+- [MostwantedRBX/proton-chrome-extension](https://github.com/MostwantedRBX/proton-chrome-extension) - Inspired by this extension
 
 This extension is not affiliated with ProtonDB and/or Valve Corporation.
