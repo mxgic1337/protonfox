@@ -24,6 +24,8 @@ To build the extension:
 
 ## 📰 Credits:
 
+- [ProtonDB](https://protondb.com) - Provides game compatibility ratings
+- [Are We Anti-Cheat Yet?](https://areweanticheatyet.com/) - Provides anti-cheat compatibility statuses
 - [MostwantedRBX/proton-chrome-extension](https://github.com/MostwantedRBX/proton-chrome-extension) - Inspired by this extension
 
 This extension is not affiliated with ProtonDB and/or Valve Corporation.
