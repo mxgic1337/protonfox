@@ -5,12 +5,8 @@
 	"description": "{{ description }}",
 	"content_scripts": [
 		{
-			"matches": [
-				"*://store.steampowered.com/*"
-			],
-			"js": [
-				"steam.js"
-			]
+			"matches": ["*://store.steampowered.com/*"],
+			"js": ["steam.js"]
 		}
 	],
 	"icons": {

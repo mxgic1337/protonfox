@@ -1,6 +1,18 @@
-import { createElement, getAreWeAntiCheatYetRating, getGameID, getProtonDBRating, ProtonDBRating, ProtonDBSummary, upperCase } from "./utils/utils";
-import { addAntiCheatStatusBadge, addStoreRatingBadge, addSystemRequirementsRating } from "./utils/store";
-import './styles/steam.less'
+import {
+	createElement,
+	getAreWeAntiCheatYetRating,
+	getGameID,
+	getProtonDBRating,
+	ProtonDBRating,
+	ProtonDBSummary,
+	upperCase,
+} from './utils/utils';
+import {
+	addAntiCheatStatusBadge,
+	addStoreRatingBadge,
+	addSystemRequirementsRating,
+} from './utils/store';
+import './styles/steam.less';
 
 /**
  * Adds rating tags to the game page
@@ -13,10 +25,10 @@ export function checkGamePage() {
 		addSystemRequirementsRating(gameId, rating);
 		let native = false;
 		for (const tab of document.getElementsByClassName('sysreq_tab')) {
-			if (tab.getAttribute('data-os') === 'linux') native = true
+			if (tab.getAttribute('data-os') === 'linux') native = true;
 		}
-		if (native) addStoreRatingBadge(gameId, ProtonDBRating.NATIVE)
+		if (native) addStoreRatingBadge(gameId, ProtonDBRating.NATIVE);
 		const status = getAreWeAntiCheatYetRating(gameId);
 		if (status) addAntiCheatStatusBadge(gameId, status);
-	})
+	});
 }

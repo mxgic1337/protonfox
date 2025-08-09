@@ -4,7 +4,8 @@
 	"description": "Extension that displays information about game compatibility with Proton on Steam.",
 	"type": "module",
 	"scripts": {
-		"build": "webpack --mode production && node scripts/manifest.cjs"
+		"build": "webpack --mode production && node scripts/manifest.cjs",
+		"format": "prettier --write ."
 	},
 	"keywords": [],
 	"author": "mxgic1337_",
@@ -20,6 +21,7 @@
 		"webpack-dev-server": "^5.2.0"
 	},
 	"dependencies": {
-		"@types/firefox-webext-browser": "^120.0.4"
+		"@types/firefox-webext-browser": "^120.0.4",
+		"prettier": "^3.6.2"
 	}
 }
