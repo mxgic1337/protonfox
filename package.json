@@ -12,16 +12,16 @@
 	"license": "MIT",
 	"devDependencies": {
 		"css-loader": "^7.1.4",
-		"less-loader": "^12.3.1",
+		"less-loader": "^13.0.0",
 		"style-loader": "^4.0.0",
-		"ts-loader": "^9.5.4",
-		"typescript": "^5.9.3",
-		"webpack": "^5.105.3",
-		"webpack-cli": "^6.0.1",
-		"webpack-dev-server": "^5.2.3"
+		"ts-loader": "^9.6.0",
+		"typescript": "^6.0.3",
+		"webpack": "^5.107.2",
+		"webpack-cli": "^7.0.3",
+		"webpack-dev-server": "^5.2.4"
 	},
 	"dependencies": {
 		"@types/firefox-webext-browser": "^143.0.0",
-		"prettier": "^3.8.1"
+		"prettier": "^3.8.3"
 	}
 }
